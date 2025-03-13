@@ -1,21 +1,22 @@
 from collections import deque
 
-T = 1
+T = 10
 
-# def solve(num):
-#     q=deque()
-#     q.append(num)
-#     lst[num][0]-=1
+def bfs(node):
+    q=deque()
+    q.append(node)
+    degrees[node] -= 1
+    result.append(node)
  
-#     while q:
-#         n=q.popleft()
-#         result.append(n)
- 
-#         if len(lst[n])>1:
-#             for i in lst[n][1:]:
-#                 lst[i][0]-=1
-#                 if lst[i][0]==0:
-#                     q.append(i)
+    while q:
+        cur_node = q.popleft()
+        cur_adj = adj_list[cur_node]
+
+        for next_node in cur_adj:
+            degrees[next_node] -= 1
+            if degrees[next_node] == 0 and next_node not in result:
+                q.append(next_node)
+                result.append(next_node)
  
 for tc in range(1,T+1):
     V, E=map(int,input().split())
@@ -31,15 +32,13 @@ for tc in range(1,T+1):
         end_node = edges[end_idx]
         degrees[end_node] += 1
         adj_list[start_node].append(end_node)
-    print(degrees)
-    print(adj_list)
-        
-     
-    for i in range(1,V+1):
-        if adj_list[i] == []:
-            zero.append(i)
- 
-    # for i in zero:
-    #     solve(i)
+
     
-    # print(f'#{tc} '+ ' '.join(map(str,result)))
+    for node in range(1,V+1):
+        if degrees[node] == 0:
+            zero.append(node)
+    
+    for node in zero:
+        bfs(node)
+        
+    print(f'#{tc}', *result)
