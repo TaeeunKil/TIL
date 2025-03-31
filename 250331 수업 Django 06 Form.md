@@ -38,7 +38,7 @@ def new(request):
     return render(request, 'articles/new.html', context)
 ```
 - html form 안쪽에서 {{form}} 으로 적용 가능
-- ![alt text](image.png)
+- ![image](https://github.com/user-attachments/assets/60f32959-7536-4797-8e3c-668f6831bdeb)
 - 위 내용을 불러온 것
 
 ### Form rendering options
