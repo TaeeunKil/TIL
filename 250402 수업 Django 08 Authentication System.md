@@ -142,7 +142,8 @@
     login.html 화면 전달
     ```
     그러면 AuthenticationForm으로
-    ![alt text](image-2.png)  
+    ![image-2](https://github.com/user-attachments/assets/05d3ba74-d7a2-4d0d-a34f-3e471a20c634)
+
         가 나오는 걸 확인 가능
 - 로그인 로직 작성
     ```
@@ -196,7 +197,8 @@ redirect로 화면 돌아가기기
     - 템플릿이 렌더링 될 때 호출 가능한 context 데이터 목록
     - 작성된 context 데이터는 기본적으로 템플릿에서 사용 가능한 변수로 포함됨 
     - 자주 사용하는 데이터 목록을 미리 템플릿에 로드한 것으로 settings에 있다
-    ![alt text](image-3.png)
+    ![image-3](https://github.com/user-attachments/assets/00b33ec2-50b7-4110-8bfb-3759705c871e)
+
 ## 참고
 ### 쿠키의 수명
 1. Session cookie
