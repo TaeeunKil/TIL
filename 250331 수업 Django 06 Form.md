@@ -38,8 +38,10 @@ def new(request):
     return render(request, 'articles/new.html', context)
 ```
 - html form 안쪽에서 {{form}} 으로 적용 가능
+  
 - ![image](https://github.com/user-attachments/assets/60f32959-7536-4797-8e3c-668f6831bdeb)
-- 위 내용을 불러온 것
+
+- html 속에서 {{form}} 하면 실제로 적용되는 html 구조
 
 ### Form rendering options
 - label input쌍을 특정 HTML 태그로 감싸는 옵션(div로 감쌌던 것처럼)
