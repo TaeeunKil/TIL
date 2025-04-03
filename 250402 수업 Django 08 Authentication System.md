@@ -193,25 +193,25 @@
     </form>
   ```
 - accounts/views.py
-  ```
+  ```python
   # accounts/views.py
     from django.contrib.auth import logout as auth_logout
 
-def logout(request):
-    auth_logout(request)
-    return redirect('articles:index')
-
+    def logout(request):
+        auth_logout(request)
+        return redirect('articles:index')
   ```
+
 - 말로 요약해보기
-```
-urls에 추가
-
-html은 submit 버튼만 있으면 된다 요청은 logout 링크로
-
-views에서는 from django.contrib.auth import logout as auth_logout을 받아오고 auth_logout(request)하면 끝
-
-redirect로 화면 돌아가기기
-```
+    ```
+    urls에 추가
+    
+    html은 submit 버튼만 있으면 된다 요청은 logout 링크로
+    
+    views에서는 from django.contrib.auth import logout as auth_logout을 받아오고 auth_logout(request)하면 끝
+    
+    redirect로 화면 돌아가기기
+    ```
 
 
 ## Template with Authentication data
