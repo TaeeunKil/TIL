@@ -241,12 +241,81 @@ def create(request):
 
 # 참고
 ## ModelForm의 키워드 인자 구성
-- 원래는 modelfrom(data=request.POST, instance=article) 인데 첫번째 키워드 인자라 생략가능 data는. instance는 9번째라 불가능
-- 공식문서 참조
-
-- 아래는 화장실 갔다오느라 못들음 다시 듣고 정리하기
+- 원래는 modelfrom(data=request.POST, instance=article) 인데 첫번째 키워드 인자라  data는 생략가능. instance는 9번째라 불가능
+- 공식문서 참조 https://github.com/django/django/blob/main/django/forms/models.py#L345
+  ```python
+  # ModelForm의 상위 클래스인 BaseModelForm의 생성자 함수 모습
+    class BaseModelForm(BaseForm):
+        def __init__(self, data=None, files=None, auto_id='id_%s', prefix=None,
+                     initial=None, error_class=ErrorList, label_suffix=None,
+                     empty_permitted=False, instance=None, use_required_attribute=None,
+                     renderer=None):
+            ...
+    ```
 
 ## Widgets 응용
+```python
+# articles/forms.py
 
+class ArticleForm(forms.ModelForm):
+    title = forms.CharField(
+        label='제목',
+        widget=forms.TextInput(
+            attrs={
+                'class': 'my-title',
+                'placeholder': 'Enter the title',
+            },
+        ),
+    )
+
+    class Meta:
+        model = Article
+        fields = '__all__'
+
+```
+```python
+class ArticleForm(forms.ModelForm):
+    title = forms.CharField(
+        label='제목',
+        widget=forms.TextInput(
+            attrs={
+                'class': 'my-title',
+                'placeholder': 'Enter the title',
+                'maxlength': 10,
+            },
+        ),
+    )
+
+    content = forms.CharField(
+        label='내용',
+        widget=forms.Textarea(
+            attrs={
+                'class': 'my-content',
+                'placeholder': 'Enter the content',
+                'rows': 5,
+                'cols': 50,
+            },
+        ),
+        error_messages={'required': '내용을 입력해주세요.'},
+    )
+
+```
 ## 필드를 수동으로 렌더링
-
+```html
+{{ form.non_field_errors }}
+<form action="..." method="POST">
+    {% csrf_token %}
+    <div>
+        {{ form.title.errors }}
+        <label for="{{ form.title.id_for_label }}">Title:</label>
+        {{ form.title }}
+    </div>
+    <div>
+        {{ form.content.errors }}
+        <label for="{{ form.content.id_for_label }}">Content:</label>
+        {{ form.content }}
+    </div>
+    <input type="submit">
+</form>
+```
+https://docs.djangoproject.com/en/4.2/topics/forms/#rendering-fields-manually
