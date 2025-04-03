@@ -174,6 +174,35 @@
     - 클라이언트의 쿠키에서도 Session Id를 삭제
 
 - 로직 작성
+- accounts/urls.py
+    ```python
+    
+    urlpatterns = [
+        path('login/', views.login, name='login'),
+        path('logout/', views.logout, name='logout'),
+    ]
+    ```
+- articles/index.html
+  ```html
+    <!-- articles/index.html -->
+    <h1>Articles</h1>
+    <a href="{% url 'accounts:login' %}">Login</a>
+    <form action="{% url 'accounts:logout' %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Logout">
+    </form>
+  ```
+- accounts/views.py
+  ```
+  # accounts/views.py
+    from django.contrib.auth import logout as auth_logout
+
+def logout(request):
+    auth_logout(request)
+    return redirect('articles:index')
+
+  ```
+- 말로 요약해보기
 ```
 urls에 추가
 
