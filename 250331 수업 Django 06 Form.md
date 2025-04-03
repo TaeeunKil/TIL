@@ -46,7 +46,7 @@ def new(request):
 ### Form rendering options
 - label input쌍을 특정 HTML 태그로 감싸는 옵션(div로 감쌌던 것처럼)
 - {{form.as_p}} 따위로 사용가능
-- 가능한 것들은 공식 문서의 form-rendering-options 참조
+- [가능한 것들은 공식 문서의 form-rendering-options 참조](https://docs.djangoproject.com/en/4.2/topics/forms/#form-rendering-options)
 
 **Form class가 불러오는 것이 무엇인지 확실히 이해하기**
 
