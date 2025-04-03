@@ -221,10 +221,16 @@ redirect로 화면 돌아가기기
 - 요청 속 특정 session를 포함하는 쿠키를 사용해서 각각의 브라우저와 사이트가 연결된 session 데이터를 알아냄
 
 ### AuthenticationForm 내부 코드
-- github 장고에 가면 볼 수 있다
+- AuthenticationForm() - https://github.com/django/django/blob/main/django/contrib/auth/forms.py#L316
+- 위의 get_user() 인스턴스 메서드 - https://github.com/django/django/blob/main/django/contrib/auth/forms.py#L387
 
 ### AbstractUser class
-- 한 번 읽어봐라 
+- 관리자 권한과 함께 완전한 기능을 가지고 있는 User model을 구현하는 추상 기본 클래스
+- 몇 가지 공통 정보를 여러 다른 모델에 넣을 때 사용하는 클래스
+- DB 테이블을 만드는 데에 사용되지 않는다
+- 대신 다른 모델의 기본 클래스로 사용되는 경우 해당 필드가 하위 클래스의 필드에 추가됨
+- models.Model -> class AbstractBaseUser -> class AbstractUser -> class User 순으로 상속된
 
 ### User 모델 대체하기 Tip
 - 공식문서 보면서 순서대로 진행하는 것을 권장
+- https://docs.djangoproject.com/en/4.2/topics/auth/customizing/#substituting-a-custom-user-model
