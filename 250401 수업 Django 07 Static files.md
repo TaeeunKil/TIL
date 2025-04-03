@@ -114,13 +114,54 @@ urlpatterns =[
 
 ### 업로드 이미지 수정
 - 수정 페이지 form에도 enctype 추가
-- update view 함수에서 업로드 파일에 대한 추가 콛 작성
+- update view 함수에서 업로드 파일에 대한 추가 코드 작성
+  ```python
+      # articles/views.py
+    
+    def update(request, pk):
+        article = Article.objects.get(pk=pk)
+        if request.method == 'POST':
+            form = ArticleForm(request.POST, request.FILES, instance=article)
+            ...
+  ```
 
 ## 참고
 ### 미디어 파일 추가 경로
 - 'upload to' argumnet
 - ImageField()의 upload_to 속성을 사용해 다양한 추가 경로 설정가능
+- ```python
+      # 1. 기본 경로 설정
+    image = models.ImageField(blank=True, upload_to='images/')
+    
+    # 2. 업로드 날짜로 경로 설정
+    image = models.ImageField(blank=True, upload_to='%Y/%m/%d/')
+    
+    # 3. 함수 형식으로 경로 설정
+    def articles_image_path(instance, filename):
+        return f'images/{instance.user.username}/{filename}'
+    
+    image = models.ImageField(blank=True, upload_to=articles_image_path)
+
+  ```
 
 ### BaseModelForm
 - request.FILES가 두 번째 위치 인자인 이유
     - 생성자 함수 키워드 인자 참고
+    ```python
+        class BaseModelForm(BaseForm):
+        def __init__(
+            self,
+            data=None,
+            files=None,
+            auto_id="id_%s",
+            prefix=None,
+            initial=None,
+            error_class=ErrorList,
+            label_suffix=None,
+            empty_permitted=False,
+            instance=None,
+            use_required_attribute=None,
+            renderer=None,
+        ):
+            ...
+    ```
