@@ -46,11 +46,13 @@
 
 
 - settings.py의 LANGUAGE_CODE = 'ko-kr'로 한글화 가능능
-- ![alt text](image-4.png)
+- ![image-4](https://github.com/user-attachments/assets/aab6288f-e993-4079-8ccf-353c9381df55)
+
 
 ### 그러면 로직 에러가 난다
 
-- ![alt text](image-5.png)![alt text](image-6.png)
+- ![image-5](https://github.com/user-attachments/assets/5aeb4f03-d448-4ec8-94fb-b893a5404d02)![image-6](https://github.com/user-attachments/assets/10aa2af7-0b84-4fe3-9383-ad038854398a)
+
 - 회원 가입에 사용하는 UserCreationForm이 과거 Django 기본 유저 모델로 인해 작성된 클래스
 
 - 즉 우리가 만들었던 그 커스텀 유저폼으로 안 바뀐 빌트인 모델을 썼다는 에러
@@ -192,7 +194,8 @@
 - 인증된 사용자의 Session 데이터를 Update 하는 과정
 - PasswordChangeForm() : 비밀번호 변경 시 사용자 입력 데이터를 받는 built-in **Form**
 ### 비밀번호 변경 페이지 작성
-- ![alt text](image-8.png)
+- ![image-8](https://github.com/user-attachments/assets/275e2a36-26f1-4fff-bd72-a7a8f183cf13)
+
 - djnango는 비밀번호 변경 페이지를 회원정보 수정 form 하단에서 별도 주소로 안내 : /user_pk/password/
 - 굳이 안 따라도 되지만 추천하는 느낌?
 
@@ -309,7 +312,8 @@
 ## 참고
 ### is_authenticated 코드
 - 메서드 아니다! 속성이다 () 없어도 된다
-- ![alt text](image-9.png)
+- ![image-9](https://github.com/user-attachments/assets/fbbfccf3-bee3-4dc0-8343-5127785f5745)
+
 - https://github.com/django/django/blob/main/django/contrib/auth/base_user.py#L85
 
 ### 회원가입 후 자동 로그인?
@@ -350,7 +354,8 @@
 
 - 부모 클래스인 SetPasswordForm의 생성자 함수 구성을 따르기 떄문에
 - user 객체를 첫번째로 받는다.
-- ![alt text](image-10.png)
+- ![image-10](https://github.com/user-attachments/assets/cde1d1d6-c66d-4c56-940d-f1d5c0f97d9e)
+
 https://github.com/django/django/blob/4.2/django/contrib/auth/forms.py#L378
 
 ### Auth buit-in form 코드
