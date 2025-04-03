@@ -70,17 +70,19 @@
 - Authentication(인증) : 사용자가 자신이 누구인지 확인하는 것(신원 확인)
 - 사전 준비
     - 두 번째 app accounts 생성 및 등록
-    - auth와 관련된 키워드나 경로가 내부적적으로 accounts라는 이름으로 사용하고 있으므로 되도록 accounts로 지정하는 것을 권장장
+    - auth와 관련된 키워드나 경로가 내부적으로 accounts라는 이름으로 사용하고 있으므로 되도록 accounts로 지정하는 것을 권장
 
 
 ## Custom User model
 - 이미 admin 하면서 해본 것. 내장되어있다
+- 
 ### User model 대체하기
 - 기존 User Model의 한계
     - 지금까지 별도의 정의 없이 내장된 auth 앱에 작성된 User 클래스를 사용했음
     - Django의 기본 User 모델은 username, password 등 제공되는 필드가 매우 제한적
     - 추가적인 사용자 정보(예: 생년월일, 주소, 나이 등)이 필요하다면 이를 위해 기본 User Model을 변경하기 어려움
         - 별도의 설정 없이 사용할 수 있어 간편하지만 개발자가 직접 수정하기 어려움
+    - https://github.com/django/django/blob/main/django/contrib/auth/models.py#L406
 - 내장되어있다
     - settings.py에 apps 보면 django.contrib.auth
     - 찾아가보면 AbstractUser를 상속받는 껍데기 형태로 존재하는데 AbstractUser가면 모델 확인 가능
