@@ -64,7 +64,7 @@ class AticleForm(forms.Form):
     content = forms.CharField(widget = forms.Textarea)
 ```
 - 위에 있는 것처럼 표현하면 변경가능
-- 공식문서 forms/widgets 참조
+- [공식문서 forms/widgets 참조](https://docs.djangoproject.com/ko/4.2/ref/forms/widgets/#built-in-widgets)
 
 # Django ModelForm
 - Form : 사용자 입력 데이터를 DB에 저장하지 않을때 (ex. 검색, 로그인)
