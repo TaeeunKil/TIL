@@ -176,7 +176,7 @@
     아니라면 form = AuthenticationForm() 받는다
     login.html 화면 전달
     ```
-    그러면 AuthenticationForm으로 나오는 걸 확인 가능
+    그러면 AuthenticationForm으로 나오는 걸 확인 가능        
     ![image-2](https://github.com/user-attachments/assets/05d3ba74-d7a2-4d0d-a34f-3e471a20c634)
 
 
