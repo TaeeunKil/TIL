@@ -92,9 +92,25 @@ class AticleForm(forms.ModelForm):
 - Model Form의 정보를 작성하는 곳(메타데이터 생각)
 
 ### fields 및 exclude 속성
-- 일단 모델은 존재해야함
+- 모델폼과 모델이 articles/forms.py에 존재해야함
 - fields로는 출력할 것들을 쓰기
+  ```python
+    # 특정 필드만 포함하는 방법
+    class ArticleForm(forms.ModelForm):
+        class Meta:
+            model = Article
+            fields = ('title',)
+  ```
+
 - exclude로는 제외할 것들을 쓰기
+  ```python
+    # 특정 필드만 제외하는 방법
+    class ArticleForm(forms.ModelForm):
+        class Meta:
+            model = Article
+            exclude = ('title',)
+  ```
+
 - 전체 표현은 '\_\_all__' 
 
 ### 주의 사항
