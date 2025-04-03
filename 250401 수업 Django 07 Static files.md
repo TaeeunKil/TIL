@@ -16,13 +16,12 @@
 - \+ app_name/ 경로에 이미지 파일 배치
 - static files 경로는 DTL의 static tag를 사용해야함
 - 빌트인tag가 아니기 때문에 load tag를 사용해 import 후 사용 가능
-```html
-index.html
-
-{% load static %}
-
-<img src="{% static 'articles/sample-1.png' %}" alt ="img">
-```
+- index.html
+    ```html
+    {% load static %}
+    
+    <img src="{% static 'articles/sample-1.png' %}" alt ="img">
+    ```
 - STATIC_URL을 개발자 도구로 확인 가능
 
 - STATIC_URL
