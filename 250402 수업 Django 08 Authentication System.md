@@ -132,6 +132,41 @@
 - AuthenticationForm()
     - 로그인 인증에 사용할 데이터를 입력 받는 built-in form
 - 로그인 페이지 작성
+  - accounts/urls.py
+    ```python
+    app_name = 'accounts'
+    urlpatterns = [
+        path('login/', views.login, name='login'),
+    ]
+
+    ```
+  - accounts/views.py
+    ```python
+    # 초기 버전
+    from django.contrib.auth.forms import AuthenticationForm
+    
+    def login(request):
+        if request.method == 'POST':
+            pass
+        else:
+            form = AuthenticationForm()
+            context = {
+                'form': form,
+            }
+        return render(request, 'accounts/login.html', context)
+
+    ```
+  - accounts/login.html
+    ```
+    <h1>로그인</h1>
+    <form action="{% url 'accounts:login' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit">
+    </form>
+
+    ```
+  - 말로해보기
     ```
     from django.contrib.auth.forms import AuthenticationForm
 
@@ -147,8 +182,8 @@
 
 - 로그인 로직 작성
   - 코드
-  ```python
-  # accounts/views.py (완성된 버전)
+    ```python
+    # accounts/views.py (완성된 버전)
     from django.shortcuts import render, redirect
     from django.contrib.auth import login as auth_login
     from django.contrib.auth.forms import AuthenticationForm
@@ -167,15 +202,15 @@
         }
         return render(request, 'accounts/login.html', context)
 
-  ```
+    ```
   - 말로 표현해보기
     ```
     from django.contrib.auth import login as auth_login
-
+    
     request.method == 'POST'라면
     form = AuthenticationForm(request, request.POST)
     첫번째 인자 request, 두번째 인자는 data
-
+    
     유효성 검사 통과하면
     auth_login 하는데 첫번쨰 인자는 request, 두번째는 로그인 인증된 유저 객체(form.get_user())
     
