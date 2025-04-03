@@ -161,7 +161,7 @@
         }
         return render(request, 'accounts/update.html', context)
     ```
-- signup.html
+- update.html
     ```html
     <body>
         <h1>회원 정보 수정</h1>
