@@ -2,7 +2,8 @@
 
 ## Managing Tables
 
-![alt text](image-13.png)
+![image-13](https://github.com/user-attachments/assets/ebc1f377-f349-4520-a7c5-9a9a96a38886)
+
 
 - 지금은 DDL
 
@@ -160,7 +161,7 @@
 **대신 테이블의 이름을 바꾸고, 새 테이블을 만들고 데이터를 새 테이블에 복사하는 방식을 사용**
 
 ## Modifying Data
-![alt text](image-13.png)
+![image-13](https://github.com/user-attachments/assets/ebc1f377-f349-4520-a7c5-9a9a96a38886)
 - 지금은 DML!
 
 ### Insert data
@@ -282,7 +283,8 @@
 ### INNER JOIN
 
 - INNER JOIN clause
-    - ![alt text](image-16.png)
+    - ![image-16](https://github.com/user-attachments/assets/644ddf78-f506-41d3-b636-97fe31c57fa8)
+
     - 두 테이블에서 값이 일치하는 레코드에 대해서만 결과를 반환
 
 - INNER JOIN syntax
@@ -302,8 +304,10 @@
 
 - 예시
 
-    ![alt text](image-18.png)
-    ![alt text](image-21.png)
+    ![image-18](https://github.com/user-attachments/assets/c85711b5-80f6-4257-b71f-b5177406c6da)
+
+    ![image-21](https://github.com/user-attachments/assets/6d156156-1e95-4bb7-b1f9-275ec6446afb)
+
     ```sql
     SELECT * FROM A
     INNER JOIN B
@@ -322,7 +326,8 @@
 
 ### LEFT JOIN clause
 - LEFT JOIN clause
-   - ![alt text](image-17.png)
+   - ![image-17](https://github.com/user-attachments/assets/d12a1559-23de-4707-a81a-77844ca8fa9c)
+
 
    - 오른쪽 테이블과 일치하는 레코드와 함께 왼쪽 테이블의 모든 레코드 반환
 
@@ -340,8 +345,10 @@
     - ON 키워드 이후 조인 조건을 작성
 
 - 예시
-    ![alt text](image-18.png)
-    ![alt text](image-19.png)
+    ![image-18](https://github.com/user-attachments/assets/fbf819ee-b15d-4398-9255-6a94c5d86cf7)
+
+    ![image-19](https://github.com/user-attachments/assets/6be7d48a-45ee-4b4f-8e0b-febf6af4f3fc)
+
 
 ## 참고
 ### 타입 선호도
