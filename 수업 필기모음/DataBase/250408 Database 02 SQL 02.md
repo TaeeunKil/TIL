@@ -81,12 +81,13 @@
 - 테이블 및 필드 조작
 
 - 역할
-    | 명령어                         | 역할              |
-    |-------------------------------|----------------- -|
-    | `ALTER TABLE ADD COLUMN`      | 필드 추가          |
-    | `ALTER TABLE RENAME COLUMN`   | 필드 이름 변경      |
-    | `ALTER TABLE DROP COLUMN`     | 필드 삭제          |
-    | `ALTER TABLE RENAME TO`       | 테이블 이름 변경    |
+
+| 명령어                         | 역할              |
+|-------------------------------|----------------- -|
+| `ALTER TABLE ADD COLUMN`      | 필드 추가          |
+| `ALTER TABLE RENAME COLUMN`   | 필드 이름 변경      |
+| `ALTER TABLE DROP COLUMN`     | 필드 삭제          |
+| `ALTER TABLE RENAME TO`       | 테이블 이름 변경    |
 
 #### ALTER TABLE ADD COLUMN syntax
  - ADD COLUMN 키워드 이후 추가하고자 하는 필드 이름과 데이터 타입과 제약 조건 작성
